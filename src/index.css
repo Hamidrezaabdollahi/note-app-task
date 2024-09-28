@@ -1,6 +1,5 @@
 @import url("../public/fonts.css");
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,14 +55,17 @@
 
 @layer components {
   .textFieldInput {
-    @apply w-full py-3 text-secondary-500 px-4 rounded-xl outline-none border border-gray-100 ;
+    @apply w-full py-2  shadow-sm text-secondary-500 px-3 rounded-xl outline-none border border-gray-100 bg-secondary-100;
+  }
+  .textAreaFieldInput {
+    @apply w-full py-2  shadow-sm text-secondary-500 px-3 resize-none rounded-xl outline-none border border-gray-100 bg-secondary-100;
   }
 
   .btnConfirm {
-    @apply bg-primary-900 text-white w-full py-3 rounded-xl transition-all duration-200 hover:bg-primary-800 ;
+    @apply bg-primary-900 text-white w-full py-3 rounded-xl transition-all duration-200 hover:bg-primary-800;
   }
   .btn--primary {
-    @apply px-4 py-3 bg-primary-900 text-white hover:bg-primary-800 shadow-lg ;
+    @apply px-4 py-3 bg-primary-900 text-white hover:bg-primary-800 shadow-lg;
   }
   .btn--secondary {
     @apply bg-secondary-600 text-secondary-100;
@@ -109,8 +111,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
-
 
 button {
   cursor: pointer;
