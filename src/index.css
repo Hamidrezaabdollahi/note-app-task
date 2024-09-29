@@ -55,10 +55,10 @@
 
 @layer components {
   .textFieldInput {
-    @apply w-full py-2  shadow-sm text-secondary-500 px-3 rounded-xl outline-none border border-gray-100 bg-secondary-100;
+    @apply w-full py-2  shadow-sm text-secondary-500 px-3 rounded-xl outline-none   bg-secondary-100;
   }
   .textAreaFieldInput {
-    @apply w-full py-2  shadow-sm text-secondary-500 px-3 resize-none rounded-xl outline-none border border-gray-100 bg-secondary-100;
+    @apply w-full py-2  shadow-sm text-secondary-500 px-3 resize-none rounded-xl outline-none   bg-secondary-100;
   }
 
   .btnConfirm {
@@ -106,7 +106,6 @@ body {
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  /* border: none; */
   outline: none;
   padding: 0;
   margin: 0;
@@ -122,4 +121,12 @@ button:disabled {
   pointer-events: none;
   box-shadow: none;
 }
+
+.custom-input {
+  text-align: center;
+  color: rgb(var(--color-secondary-400));
+  background-color: rgb(var(--color-secondary-100));
+ cursor: pointer; 
+}
+
 
