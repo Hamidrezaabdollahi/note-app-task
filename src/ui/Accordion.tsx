@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { FiChevronDown, FiX, FiEdit } from "react-icons/fi"
 
-import persian from "react-date-object/calendars/persian";
 import { DateObject } from "react-multi-date-picker";
 import { useNote } from "../context/context";
 import { useNavigate } from "react-router-dom";
 
+import persian from "react-date-object/calendars/persian"
+import persian_fa from "react-date-object/locales/persian_fa"
 
 type AccordionProps = {
   noteHeader: string,
@@ -17,11 +18,16 @@ type AccordionProps = {
 }
 
 
-export default function Accordion({ noteHeader, noteBody, deadline, createdAt, onDelete, noteId }: AccordionProps) {
-  const [accordionOpen, setAccordionOpen] = useState(false);
-  const { setIsEditMode, setNoteIdToEdit } = useNote()
+const Accordion = ({ noteHeader, noteBody, deadline, createdAt, onDelete, noteId }: AccordionProps) => {
 
   const navigate = useNavigate()
+  const [accordionOpen, setAccordionOpen] = useState(false);
+  const { setIsEditMode, setNoteIdToEdit } = useNote()
+  const nowGetTime = new DateObject({ calendar: persian, locale: persian_fa }).toDate().getTime()
+  const deadlineGetTime = new Date(deadline).getTime()
+
+
+
 
   const convertToPersian = (isoDate: string) => {
     const date = new Date(isoDate);
@@ -37,10 +43,14 @@ export default function Accordion({ noteHeader, noteBody, deadline, createdAt, o
   }
 
 
+
   return (
     <div >
       {/*this is header*/}
-      <div onClick={() => setAccordionOpen(!accordionOpen)} className="flex items-center justify-between px-4 py-4 my-2 cursor-pointer text-lg  bg-secondary-100  rounded-xl">
+      <div onClick={() => setAccordionOpen(!accordionOpen)}
+        className={`flex items-center justify-between px-4 py-4 my-2 cursor-pointer text-lg  rounded-xl
+        ${nowGetTime > deadlineGetTime ? " bg-red-100" : "bg-secondary-100"} 
+        `}>
         <div className="flex justify-center items-center gap-x-3">
           <span className="text-error " onClick={() => onDelete(noteId)}> <FiX /> </span>
           <span className="text-primary-500" onClick={() => handleOnEdit(noteId)}> <FiEdit /> </span>
@@ -69,3 +79,4 @@ export default function Accordion({ noteHeader, noteBody, deadline, createdAt, o
   );
 }
 
+export default Accordion

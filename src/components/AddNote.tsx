@@ -66,6 +66,8 @@ export default function AddNote() {
     setIsEditMode(false);
   };
 
+  
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -111,10 +113,9 @@ export default function AddNote() {
       </div>
       <textarea className="textAreaFieldInput" rows={12} placeholder="متن یادداشت خود را وارد کنید ...." value={text} onChange={(e) => setText(e.target.value)} />
       <div className="flex items-center justify-between w-full">
-        <button type="submit" className="bg-gradient-to-l from-secondary-100 p-4 flex-1 rounded-xl hover:text-secondary-600 transition-all duration-200">
+        <button type="submit" className="bg-secondary-100 p-4 flex-1 rounded-xl hover:text-secondary-600 transition-all duration-200">
           {isEditMode ? "ویرایش" : "ذخیره"}
         </button>
-        <button className="bg-gradient-to-r from-secondary-100 p-4 flex-1 rounded-xl hover:text-secondary-600 transition-all duration-200">از نو بنویس</button>
       </div>
     </form>
   )
