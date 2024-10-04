@@ -7,10 +7,13 @@ import Navbar from './components/Navbar'
 import Layout from './components/Layout'
 import AddNote from './components/AddNote'
 import NotesList from './components/NotesList'
+import { Toaster } from 'react-hot-toast'
+import { NoteProvider } from './context/context'
 
 function App() {
   return (
-    <>
+    <NoteProvider>
+      <Toaster />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -21,7 +24,7 @@ function App() {
         </Route>
         <Route path='/about' element={<About />} />
       </Routes>
-    </>
+    </NoteProvider>
   )
 }
 
