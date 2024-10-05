@@ -105,14 +105,14 @@ export default function AddNote() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center justify-start my-6 w-full gap-y-4 text-secondary-400">
-      <div className="flex items-center justify-center gap-x-4 w-full">
-        <input type="text" className="textFieldInput rounded-l-none flex-1" placeholder="موضوع یادداشت را وارد کنید ...." value={title} onChange={(e) => setTitle(e.target.value)} />
-        <div className="flex flex-1 items-center justify-center gap-x-2 py-2 px-3 shadow-sm text-secondary-400 bg-secondary-100 rounded-l-xl ">
+      <div className="flex flex-col text-xs lg:text-base lg:flex-row items-center  justify-center gap-x-4 w-full">
+        <input type="text" className="textFieldInput rounded-b-none lg:rounded-l-none flex-1" placeholder="موضوع یادداشت را وارد کنید ...." value={title} onChange={(e) => setTitle(e.target.value)} />
+        <div className="flex w-full lg:flex-1 items-center rounded-b-xl rounded-t-none justify-center gap-x-2 py-2 px-3 shadow-sm text-secondary-400 bg-secondary-100 lg:rounded-l-xl ">
           <span >سررسید یادداشت</span>
           <PersianDatePicker date={deadline} handleDateChange={(date) => setDeadline(date)} />
         </div>
       </div>
-      <textarea className="textAreaFieldInput" rows={12} placeholder="متن یادداشت خود را وارد کنید ...." value={text} onChange={(e) => setText(e.target.value)} />
+      <textarea className="textAreaFieldInput text-xs lg:text-base" rows={12} placeholder="متن یادداشت خود را وارد کنید ...." value={text} onChange={(e) => setText(e.target.value)} />
       <div className="flex items-center justify-between w-full">
         <button type="submit" className="bg-secondary-100 p-4 flex-1 rounded-xl hover:text-secondary-600 transition-all duration-200">
           {isEditMode ? "ویرایش" : "ذخیره"}

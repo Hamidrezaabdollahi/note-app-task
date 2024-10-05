@@ -48,15 +48,15 @@ const Accordion = ({ noteHeader, noteBody, deadline, createdAt, onDelete, noteId
     <div >
       {/*this is header*/}
       <div onClick={() => setAccordionOpen(!accordionOpen)}
-        className={`flex items-center justify-between px-4 py-4 my-2 cursor-pointer text-lg  rounded-xl
+        className={`flex flex-col gap-y-2 lg:flex-row items-center justify-between px-4 py-4 my-2 cursor-pointer text-lg  rounded-xl
         ${nowGetTime > deadlineGetTime ? " bg-red-100" : "bg-secondary-100"} 
         `}>
-        <div className="flex justify-center items-center gap-x-3">
+        <div className="flex justify-start flex-1 items-center gap-x-3 lg:flex-auto w-full">
           <span className="text-error " onClick={() => onDelete(noteId)}> <FiX /> </span>
           <span className="text-primary-500" onClick={() => handleOnEdit(noteId)}> <FiEdit /> </span>
           {noteHeader}
         </div>
-        <div className="flex items-center justify-center gap-x-4">
+        <div className="flex items-center justify-end gap-x-4 w-full ">
           <span className="font-extralight text-xs"> سررسید : {convertToPersian(deadline)}</span>
           <span className="font-extralight text-xs"> تاریخ ایجاد : {convertToPersian(createdAt)}</span>
           <span className={`transition-all duration-300 mx-2 ${accordionOpen ? "rotate-180" : "rotate-0"}`}>
