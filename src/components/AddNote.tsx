@@ -33,7 +33,7 @@ export default function AddNote() {
   };
 
 
-  const { isEditMode, noteIdToEdit, setIsEditMode } = useNote()
+  const { isEditMode, noteIdToEdit, setIsEditMode, setNoteIdToEdit } = useNote()
 
   const noteToBeEdited = async () => {
     if (noteIdToEdit) {
@@ -64,6 +64,7 @@ export default function AddNote() {
     setText("");
     setDeadline(new DateObject({ calendar: persian, locale: persian_fa }));
     setIsEditMode(false);
+    setNoteIdToEdit(null)
   };
 
   
